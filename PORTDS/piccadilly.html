@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PICCADILLY | Marketing & Multimedia - Daniel Sarmiento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Estilos específicos para la vista de proyecto (Caso de Estudio) */
+        .project-header {
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 1.5rem 0;
+        }
+        .meta-item h4 {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            color: #888;
+        }
+        .meta-item p {
+            font-size: 1rem;
+            font-weight: 400;
+            margin: 0;
+        }
+        
+        /* Sección de Multimedia y Galería */
+        .section-subtitle-center {
+            text-align: center;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #c5a059;
+            margin-top: 4rem;
+            margin-bottom: 1.5rem;
+        }
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .gallery-wide {
+            grid-column: span 2;
+        }
+        .project-gallery img, .project-gallery video {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            background-color: #f9f9f9;
+        }
+        
+        /* Grid específico para Videos Verticales (Reels / TikToks) */
+        .video-vertical-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .video-vertical-grid video {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: #000;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #000;
+            transition: opacity 0.3s;
+        }
+        .back-link:hover {
+            opacity: 0.6;
+        }
+
+        @media (max-width: 768px) {
+            .project-meta {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+            .project-gallery, .video-vertical-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-wide {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">DANIEL SARMIENTO</a>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="index.html#proyectos" class="nav-link">Proyectos Académicos</a></li>
+                    <li><a href="index.html#contenido-visual" class="nav-link active">Contenido Visual</a></li>
+                    <li><a href="index.html#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Encabezado del Proyecto -->
+        <header class="project-header">
+            <span style="color: #c5a059; letter-spacing: 3px; text-transform: uppercase; font-size: 0.8rem;">Marketing Digital & Multimedia</span>
+            <h1 style="font-size: 3rem; margin-top: 1rem; font-weight: 300;">PICCADILLY</h1>
+            <p style="max-width: 650px; margin: 1.5rem auto 0; color: #555; line-height: 1.8; font-weight: 300;">
+                Estrategia de marketing digital y diseño visual para PICCADILLY. El enfoque principal estuvo en la creación de contenido multimedia para redes sociales y entornos digitales, integrando fotografía de producto comercial, edición de videos adaptados a las tendencias actuales y diseño de piezas gráficas de alto impacto.
+            </p>
+        </header>
+
+        <!-- Ficha Técnica / Meta Data -->
+        <section class="project-meta">
+            <div class="meta-item">
+                <h4>Proyecto</h4>
+                <p>Campaña & Contenido Digital</p>
+            </div>
+            <div class="meta-item">
+                <h4>Rol</h4>
+                <p>Marketing Digital, Diseño & Producción Audiovisual</p>
+            </div>
+            <div class="meta-item">
+                <h4>Año</h4>
+                <p>2025</p>
+            </div>
+        </section>
+
+        <!-- APARTADO 1: PRODUCCIÓN AUDIOVISUAL (VIDEOS) -->
+        <h3 class="section-subtitle-center">Videos Realizados</h3>
+        
+        <!-- Si tus videos son en formato vertical (Reels/Shorts), usa este grid de 3 columnas -->
+        <section class="video-vertical-grid">
+            <div>
+                <video controls poster="images/video-poster-1.png">
+                    <source src="videos/piccadilly-reel1.mp4" type="video/mp4">
+                    Tu navegador no soporta reproducción de video.
+                </video>
+            </div>
+            <div>
+                <video controls poster="images/video-poster-2.png">
+                    <source src="videos/piccadilly-reel2.mp4" type="video/mp4">
+                    Tu navegador no soporta reproducción de video.
+                </video>
+            </div>
+            <div>
+                <video controls poster="images/video-poster-3.png">
+                    <source src="videos/piccadilly-reel3.mp4" type="video/mp4">
+                    Tu navegador no soporta reproducción de video.
+                </video>
+            </div>
+        </section>
+
+        <!-- APARTADO 2: DISEÑO Y FOTOGRAFÍA COMERCIAL -->
+        <h3 class="section-subtitle-center">Fotografía Comercial & Diseño</h3>
+        <section class="project-gallery">
+            <!-- Imagen Principal (Ancha) -->
+            <div class="gallery-wide">
+                <img src="piccadillymedia/image1.jpeg" alt="PICCADILLY Campaña Principal">
+            </div>
+            
+            <!-- Dos imágenes en paralelo (Diseños de publicaciones o fotos fijas) -->
+            <div>
+                <img src="images/piccadilly-image1.jpeg" alt="PICCADILLY Fotografía de Producto">
+            </div>
+            <div>
+                <img src="images/piccadilly-foto2.png" alt="PICCADILLY Diseño para Redes Sociales">
+            </div>
+
+            <!-- Cierre de galería ancha -->
+            <div class="gallery-wide">
+                <img src="images/piccadilly-banner.png" alt="PICCADILLY Banner Publicitario">
+            </div>
+        </section>
+
+        <!-- Enlace para volver al inicio -->
+        <div style="text-align: center; margin-bottom: 6rem;">
+            <a href="index.html#contenido-visual" class="back-link">← Volver a Contenido Visual</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Daniel Sarmiento. Desarrollado con dedicación profesional.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
