@@ -1,114 +1,475 @@
-/* ==========================================================================
-   1. VARIABLES Y CONFIGURACIÓN BASE
-   ========================================================================== */
+/* =========================================
+   1. VARIABLES Y CONFIGURACIÓN BASE (NEGRO CLARO)
+   ========================================= */
 :root {
-    --bg-color: #121212;       /* Fondo oscuro principal */
-    --surface-color: #1e1e1e;  /* Fondo de las tarjetas y elementos */
-    --text-primary: #ffffff;   /* Texto blanco principal */
-    --text-secondary: #aaaaaa; /* Texto gris secundario */
-    --gold: #d4af37;           /* Color dorado para acentos y enlaces activos */
-    --font-main: 'Inter', sans-serif;
+    --gold: #d4a574;
+    --gold-light: #e6b98a;
+    --dark: #e5e7eb;             /* Blanco suave / Gris muy claro para los textos */
+    --gray: #9ca3af;             /* Gris medio para descripciones */
+    --light: #121212;            /* FONDO PRINCIPAL: Negro claro / Grafito profundo */
+    --white: #1a1a1a;            /* Tarjetas y menú: Un tono más claro para crear relieve */
+    --border-color: #262626;     /* Bordes oscuros muy sutiles */
+    --transition: all 0.3s ease;
 }
 
 * {
     margin: 0;
     padding: 0;
-    box-box: border-box;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-primary);
-    font-family: var(--font-main);
+    font-family: 'Inter', sans-serif;
+    background: var(--light);
+    color: var(--dark);
     line-height: 1.6;
-    overflow-x: hidden;
+    padding-top: 80px;
 }
 
 .container {
-    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 20px;
 }
 
-/* ==========================================================================
-   2. COMPONENTES REUTILIZABLES (SECCIONES Y BOTONES)
-   ========================================================================== */
-.section {
-    padding: 5rem 0;
+img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
-.section-title {
-    font-size: 2.2rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.section-subtitle {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-    margin-bottom: 3rem;
-}
-
-.tag {
-    background-color: var(--surface-color);
-    color: var(--text-primary);
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    border: 1px solid #333;
-    display: inline-block;
-}
-
-/* ==========================================================================
-   3. BARRA DE NAVEGACIÓN (NAVBAR)
-   ========================================================================== */
+/* =========================================
+   2. NAVEGACIÓN FIJA
+   ========================================= */
 .nav {
-    background-color: rgba(18, 18, 18, 0.95);
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
+    background: rgba(18, 18, 18, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
     z-index: 1000;
-    border-bottom: 1px solid #222;
+    padding: 15px 0;
 }
 
 .nav-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 0;
 }
 
 .logo {
-    color: var(--text-primary);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--dark);
     text-decoration: none;
-    font-weight: 600;
-    letter-spacing: 1px;
-    font-size: 1.1rem;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 25px;
 }
 
 .nav-link {
-    color: var(--text-secondary);
+    color: var(--gray);
     text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.3s ease;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    transition: var(--transition);
 }
 
-.nav-link:hover, 
-.nav-link.active {
+.nav-link:hover, .nav-link.active {
     color: var(--gold);
 }
 
-/* ==========================================================================
-   4. DISEÑO DE LA PÁGINA "SOBRE MÍ" (GRIDS Y TIMELINE)
-   ========================================================================== */
+/* =========================================
+   3. SECCIONES DE PORTAFOLIO PRINCIPAL (MATRIZ 2xN)
+   ========================================= */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.portfolio-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-link:hover {
+    transform: translateY(-5px);
+}
+
+.preview-item {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.preview-item:hover {
+    border-color: var(--gold);
+    box-shadow: 0 10px 30px rgba(212, 165, 116, 0.05);
+}
+
+.preview-img-wrap {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #0c0c0c;
+}
+
+.preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.preview-item:hover .preview-img {
+    transform: scale(1.05);
+}
+
+.preview-item h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.preview-item p {
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+/* =========================================
+   4. APARTADOS DE DETALLES Y CASOS DE ESTUDIO (PICCADILLY)
+   ========================================= */
+.project-header {
+    padding: 6rem 0 3rem;
+    text-align: center;
+}
+
+.project-meta {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin: 2rem 0 4rem;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.5rem 0;
+}
+
+.meta-item {
+    text-align: center;
+}
+
+.meta-item h4 {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    color: var(--gray);
+}
+
+.meta-item p {
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* =========================================
+   5. NUEVOS ESTILOS: ESTRUCTURA GRID PARA DANIEL.HTML
+   ========================================= */
+.about-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 3.5rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.about-image-wrap {
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    background: #0c0c0c;
+}
+
+.about-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-info h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+    color: var(--gold);
+}
+
+.about-info p {
+    font-size: 1rem;
+    color: var(--gray);
+    margin-bottom: 1.2rem;
+}
+
+.skills-container {
+    margin-top: 2rem;
+}
+
+.skills-container h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.8rem;
+    color: var(--dark);
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skills-tags .tag {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--dark);
+    transition: var(--transition);
+}
+
+.skills-tags .tag:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+/* =========================================
+   6. FORMULARIO DE CONTACTO
+   ========================================= */
+.contact-form {
+    max-width: 600px;
+    margin: 2rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    text-align: left;
+}
+
+.contact-form label {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--dark);
+    font-weight: 600;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+    background: var(--white);
+    color: var(--dark);
+    transition: var(--transition);
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-btn {
+    background: var(--dark);
+    color: #121212;
+    padding: 0.8rem 2rem;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    transition: var(--transition);
+    align-self: flex-start;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.form-btn:hover {
+    background: var(--gold);
+    color: #121212;
+}
+
+/* =========================================
+   7. ELEMENTOS BASE Y SECCIONES
+   ========================================= */
+.hero {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(18, 18, 18, 0.6), rgba(18, 18, 18, 0.95)), 
+                url('../images/BANNER HORIZONTAL WEBSITE.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 200;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: var(--gray);
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.section {
+    padding: 5rem 0;
+    background-color: var(--light); /* Fuerza el color oscuro base */
+}
+
+.section-title {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--gray);
+    font-size: 1rem;
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
+
+footer {
+    text-align: center;
+    padding: 3rem 0;
+    background: #0d0d0d;
+    border-top: 1px solid var(--border-color);
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   8. RESPONSIVE
+   ========================================= */
+@media (max-width: 992px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .about-image-wrap {
+        height: 320px;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   9. SECCIÓN DE EXPERIENCIA (TIMELINE)
+   ========================================= */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+}
+
+.timeline-item {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 2rem;
+    transition: var(--transition);
+}
+
+.timeline-item:hover {
+    border-color: var(--gold);
+}
+
+.timeline-meta h4 {
+    font-size: 1.1rem;
+    color: var(--dark);
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.timeline-meta .company {
+    color: var(--gold);
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.timeline-meta .date {
+    color: var(--gray);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.timeline-content p {
+    color: var(--dark);
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.timeline-content ul {
+    padding-left: 18px;
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.timeline-content li {
+    margin-bottom: 6px;
+}
+
+/* Ajuste Responsivo para la Experiencia */
+@media (max-width: 768px) {
+    .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 20px;
+    }
+}
+
+/* --- Espaciados para las nuevas secciones de daniel.html --- */
 .main-about {
     padding-top: 7rem; 
     min-height: 85vh;
@@ -123,10 +484,10 @@ body {
     font-size: 1.4rem; 
     margin-bottom: 2.5rem; 
     text-align: left; 
-    color: var(--gold);
+    color: var(--gold); /* Si no tienes esta variable, puedes usar un color directo como #d4af37 */
 }
 
-/* Rejilla de Información Principal */
+/* --- Ajustes de cuadrícula (Grid) para Sobre mí si no los tenías --- */
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -141,109 +502,10 @@ body {
 .about-img {
     width: 100%;
     border-radius: 8px;
-    filter: grayscale(20%);
     border: 1px solid #333;
 }
 
-.about-info h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-}
-
-.about-info p {
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-}
-
-/* Contenedor de Habilidades / Servicios */
-.skills-container {
-    margin-top: 2.5rem;
-}
-
-.skills-container h4 {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-}
-
-.skills-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-}
-
-/* Línea de Tiempo (Experiencia) */
-.timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    position: relative;
-}
-
-.timeline-item {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 2rem;
-}
-
-.timeline-meta h4 {
-    font-size: 1.2rem;
-    color: var(--text-primary);
-    margin-bottom: 0.3rem;
-}
-
-.timeline-meta .company {
-    color: var(--gold);
-    font-weight: 600;
-    font-size: 0.95rem;
-}
-
-.timeline-meta .date {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    margin-top: 0.2rem;
-}
-
-.timeline-content p {
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-}
-
-.timeline-content ul {
-    list-style-type: none;
-}
-
-.timeline-content ul li {
-    color: var(--text-secondary);
-    position: relative;
-    padding-left: 1.5rem;
-    margin-bottom: 0.7rem;
-    font-size: 0.95rem;
-}
-
-.timeline-content ul li::before {
-    content: "•";
-    color: var(--gold);
-    font-size: 1.2rem;
-    position: absolute;
-    left: 0;
-    top: -2px;
-}
-
-/* ==========================================================================
-   5. PIE DE PÁGINA (FOOTER)
-   ========================================================================== */
-footer {
-    border-top: 1px solid #222;
-    padding: 2rem 0;
-    text-align: center;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-top: 5rem;
-}
-
-/* ==========================================================================
-   6. ESTILOS RESPONSIVOS (DISPOSITIVOS MÓVILES)
-   ========================================================================== */
+/* --- BLOQUE RESPONSIVO PARA MÓVILES (Afecta a index.html y daniel.html) --- */
 @media (max-width: 768px) {
     
     .container {
@@ -265,7 +527,7 @@ footer {
         text-align: center;
     }
 
-    /* Navegación en bloque vertical */
+    /* Menú móvil ordenado verticalmente */
     .nav-content {
         flex-direction: column;
         gap: 1rem;
@@ -282,10 +544,11 @@ footer {
         font-size: 0.9rem;
     }
 
-    /* Colapsar grids de 2 columnas a 1 sola columna */
+    /* Convierte TODAS las cuadrículas de tu web (proyectos e info) a 1 sola columna */
     .about-grid,
+    .portfolio-grid,
     .timeline-item {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         gap: 2rem;
     }
 
@@ -302,9 +565,9 @@ footer {
         justify-content: center;
     }
 
-    /* Ajuste estético de la experiencia en móvil */
+    /* Estilo de la línea de tiempo en pantallas móviles */
     .timeline-item {
-        border-left: 2px solid var(--gold);
+        border-left: 2px solid var(--gold, #d4af37);
         padding-left: 1.2rem;
         margin-left: 0.2rem;
         gap: 1rem;
