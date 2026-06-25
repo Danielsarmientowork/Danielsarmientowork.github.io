@@ -457,6 +457,9 @@ footer {
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
+.whatsapp-icon { width: 30px; height: 30px; fill: white; }
+
+
 /* =========================================
    8. MEDIA QUERIES (OPTIMIZACIÓN MÓVIL UNIFICADA)
    ========================================= */
