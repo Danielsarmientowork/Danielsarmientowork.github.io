@@ -187,7 +187,7 @@ img, video {
 }
 
 /* =========================================
-   5. NUEVOS ESTILOS: ESTRUCTURA GRID PARA DANIEL.HTML
+   5. ESTRUCTURA GRID PARA DANIEL.HTML
    ========================================= */
 .about-grid {
     display: grid;
@@ -351,7 +351,7 @@ img, video {
 
 .section {
     padding: 5rem 0;
-    background-color: var(--light); /* Fuerza el color oscuro base */
+    background-color: var(--light); 
 }
 
 .section-title {
@@ -377,25 +377,6 @@ footer {
     border-top: 1px solid var(--border-color);
     color: var(--gray);
     font-size: 0.9rem;
-}
-
-/* =========================================
-   8. RESPONSIVE
-   ========================================= */
-@media (max-width: 992px) {
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    .about-image-wrap {
-        height: 320px;
-    }
-}
-
-@media (max-width: 768px) {
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
 }
 
 /* =========================================
@@ -460,11 +441,80 @@ footer {
     margin-bottom: 6px;
 }
 
-/* Ajuste Responsivo para la Experiencia */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #25d366;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* =========================================
+   8. MEDIA QUERIES (OPTIMIZACIÓN MÓVIL UNIFICADA)
+   ========================================= */
+@media (max-width: 992px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .about-image-wrap {
+        height: 320px;
+    }
+}
+
 @media (max-width: 768px) {
+    /* Ajustes generales */
+    body {
+        padding-top: 130px; /* Evita que el menú colapsado tape el contenido del inicio */
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    /* Menú responsivo centrado táctil */
+    .nav-content {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .nav-link {
+        font-size: 0.75rem;
+    }
+
+    /* Cambio drástico de Grids a 1 sola columna vertical */
+    .portfolio-grid,
     .timeline-item {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 1.5rem;
         padding: 20px;
+    }
+
+    .preview-img-wrap {
+        height: 220px; /* Proporción más equilibrada para pantallas de celular */
+    }
+
+    .project-meta {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1rem 0;
+    }
+
+    .skills-tags {
+        justify-content: center;
     }
 }
