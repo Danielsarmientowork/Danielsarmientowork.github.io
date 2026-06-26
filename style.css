@@ -521,3 +521,114 @@ footer {
         justify-content: center;
     }
 }
+
+/* =========================================
+   NUEVO ACORDEÓN INTERACTIVO PREMIUM (HOVER)
+   ========================================= */
+.skills-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; /* Mayor separación entre bloques para romper lo plano */
+    margin-top: 1.5rem;
+}
+
+/* Cada tarjeta de categoría */
+.skills-group {
+    background: var(--white); /* Color base #1a1a1a para crear relieve real */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                border-color 0.3s ease, 
+                box-shadow 0.3s ease;
+}
+
+/* El título que el usuario toca o ve */
+.skills-summary {
+    padding: 20px;
+    font-size: 1rem;
+    font-family: monospace;
+    color: var(--dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Flecha indicadora estilizada */
+.skills-summary .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    color: var(--gray);
+}
+
+/* Contenedor de las etiquetas ocultas */
+.skills-content {
+    max-height: 0;
+    opacity: 0;
+    padding: 0 20px;
+    overflow: hidden;
+    background: rgba(12, 12, 12, 0.4); /* Fondo ligeramente más oscuro para contrastar */
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.3s ease, 
+                padding 0.4s ease;
+}
+
+/* Distribución interna de los tags */
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* =========================================
+   EFECTOS DINÁMICOS AL PASAR EL CURSOR (HOVER)
+   ========================================= */
+
+/* Acción sobre la tarjeta completa */
+.skills-group:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px); /* Levanta la tarjeta creando relieve 3D */
+    box-shadow: 0 10px 20px rgba(212, 165, 116, 0.08); /* Iluminación sutil dorada */
+}
+
+/* Cambio de color en el título */
+.skills-group:hover .skills-summary {
+    color: var(--gold);
+}
+
+/* Rotación y cambio de color en la flecha */
+.skills-group:hover .skills-summary .arrow {
+    transform: rotate(90deg);
+    color: var(--gold);
+}
+
+/* Despliegue fluido del contenido */
+.skills-group:hover .skills-content {
+    max-height: 300px; /* Espacio suficiente para albergar los tags */
+    opacity: 1;
+    padding: 20px; /* Le devuelve el aire interno al abrirse */
+    border-top: 1px solid rgba(212, 165, 116, 0.15); /* Línea divisoria interna brillante */
+}
+
+/* Mejoras visuales en las etiquetas individuales */
+.skills-tags .tag {
+    background: #121212; /* Fondo oscuro sólido para que resalten sobre la tarjeta */
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 6px; /* Bordes ligeramente más rectangulares y maduros */
+    font-size: 0.85rem;
+    color: var(--dark);
+    transition: var(--transition);
+}
+
+.skills-tags .tag:hover {
+    border-color: var(--gold-light);
+    color: #ffffff;
+    background: rgba(214, 165, 116, 0.1);
+}
