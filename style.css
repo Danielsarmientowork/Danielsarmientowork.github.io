@@ -1,5 +1,5 @@
 /* =========================================
-   1. VARIABLES Y CONFIGURACIÓN BASE (NEGRO CLARO)
+   1. VARIABLES Y CONFIGURACIÓN BASE
    ========================================= */
 :root {
     --gold: #d4a574;
@@ -9,7 +9,7 @@
     --light: #121212;            /* FONDO PRINCIPAL: Negro claro / Grafito profundo */
     --white: #1a1a1a;            /* Tarjetas y menú: Un tono más claro para crear relieve */
     --border-color: #262626;     /* Bordes oscuros muy sutiles */
-    --transition: all 0.3s ease;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 * {
@@ -151,7 +151,7 @@ img, video {
 }
 
 /* =========================================
-   4. APARTADOS DE DETALLES Y CASOS DE ESTUDIO (PICCADILLY)
+   4. APARTADOS DE DETALLES Y CASOS DE ESTUDIO
    ========================================= */
 .project-header {
     padding: 6rem 0 3rem;
@@ -187,20 +187,21 @@ img, video {
 }
 
 /* =========================================
-   5. ESTRUCTURA GRID PARA DANIEL.HTML
+   5. ESTRUCTURA GRID PARA DANIEL.HTML (RETRATO LIMPIO)
    ========================================= */
 .about-grid {
     display: grid;
     grid-template-columns: 0.8fr 1.2fr;
     gap: 3.5rem;
-    align-items: center;
+    align-items: start;
     margin-top: 2rem;
 }
 
 .about-image-wrap {
     width: 100%;
-    height: 500px;
-    border-radius: 8px;
+    height: auto;
+    aspect-ratio: 3 / 4; /* Proporción limpia de foto sin estiramientos */
+    border-radius: 0px;  /* Rectangular estricto sin formas circulares pasadas */
     overflow: hidden;
     border: 1px solid var(--border-color);
     background: #0c0c0c;
@@ -210,11 +211,12 @@ img, video {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 20%; /* Mantiene tu rostro encuadrado */
 }
 
 .about-info h3 {
     font-size: 1.6rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
     font-weight: 600;
     color: var(--gold);
 }
@@ -222,19 +224,58 @@ img, video {
 .about-info p {
     font-size: 1rem;
     color: var(--gray);
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
 }
 
 .skills-container {
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
-.skills-container h4 {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 0.8rem;
+/* =========================================
+   6. NUEVO ACORDEÓN INTERACTIVO PREMIUM (HOVER)
+   ========================================= */
+.skills-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.skills-group {
+    background: var(--white); /* Crea el relieve real sobre el fondo negro */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.skills-summary {
+    padding: 20px;
+    font-size: 1rem;
+    font-family: monospace;
     color: var(--dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.skills-summary .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+    font-size: 1rem;
+    color: var(--gray);
+}
+
+.skills-content {
+    max-height: 0;
+    opacity: 0;
+    padding: 0 20px;
+    overflow: hidden;
+    background: rgba(12, 12, 12, 0.3);
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, padding 0.4s ease;
 }
 
 .skills-tags {
@@ -244,22 +285,46 @@ img, video {
 }
 
 .skills-tags .tag {
-    background: var(--white);
+    background: #121212;
     border: 1px solid var(--border-color);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.8rem;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.85rem;
     color: var(--dark);
     transition: var(--transition);
 }
 
 .skills-tags .tag:hover {
+    border-color: var(--gold-light);
+    color: #ffffff;
+    background: rgba(214, 165, 116, 0.1);
+}
+
+/* --- EFECTOS HOVER DEL ACORDEÓN --- */
+.skills-group:hover {
     border-color: var(--gold);
+    transform: translateY(-3px); /* Relieve tridimensional */
+    box-shadow: 0 10px 20px rgba(212, 165, 116, 0.08);
+}
+
+.skills-group:hover .skills-summary {
     color: var(--gold);
 }
 
+.skills-group:hover .skills-summary .arrow {
+    transform: rotate(90deg);
+    color: var(--gold);
+}
+
+.skills-group:hover .skills-content {
+    max-height: 300px;
+    opacity: 1;
+    padding: 20px;
+    border-top: 1px solid rgba(212, 165, 116, 0.15);
+}
+
 /* =========================================
-   6. FORMULARIO DE CONTACTO
+   7. FORMULARIO DE CONTACTO
    ========================================= */
 .contact-form {
     max-width: 600px;
@@ -321,7 +386,7 @@ img, video {
 }
 
 /* =========================================
-   7. ELEMENTOS BASE Y SECCIONES
+   8. HERO DE INICIO Y ELEMENTOS BASE
    ========================================= */
 .hero {
     height: 90vh;
@@ -441,6 +506,7 @@ footer {
     margin-bottom: 6px;
 }
 
+/* BOTÓN WHATSAPP CORRECTO */
 .whatsapp-float {
     position: fixed;
     bottom: 30px;
@@ -460,29 +526,34 @@ footer {
 .whatsapp-icon { width: 30px; height: 30px; fill: white; }
 
 /* =========================================
-   8. MEDIA QUERIES (OPTIMIZACIÓN MÓVIL UNIFICADA)
+   10. MEDIA QUERIES (OPTIMIZACIÓN MÓVIL TOTAL)
    ========================================= */
 @media (max-width: 992px) {
     .about-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 2.5rem;
     }
+    /* AJUSTE CLAVE: Evita el recorte de foto en celulares */
     .about-image-wrap {
-        height: 320px;
+        max-width: 340px;
+        margin: 0 auto;
+        aspect-ratio: 3 / 4;
+    }
+    .about-img {
+        object-fit: cover;
+        object-position: center center;
     }
 }
 
 @media (max-width: 768px) {
-    /* Ajustes generales */
     body {
-        padding-top: 130px; /* Evita que el menú colapsado tape el contenido del inicio */
+        padding-top: 130px;
     }
 
     .container {
         padding: 0 15px;
     }
 
-    /* Menú responsivo centrado táctil */
     .nav-content {
         flex-direction: column;
         gap: 12px;
@@ -498,7 +569,6 @@ footer {
         font-size: 0.75rem;
     }
 
-    /* Cambio drástico de Grids a 1 sola columna vertical */
     .portfolio-grid,
     .timeline-item {
         grid-template-columns: 1fr;
@@ -507,7 +577,7 @@ footer {
     }
 
     .preview-img-wrap {
-        height: 220px; /* Proporción más equilibrada para pantallas de celular */
+        height: 220px;
     }
 
     .project-meta {
@@ -515,119 +585,4 @@ footer {
         gap: 1.5rem;
         padding: 1rem 0;
     }
-
-    .skills-tags {
-        justify-content: center;
-    }
-}
-
-/* =========================================
-   NUEVO ACORDEÓN INTERACTIVO PREMIUM (HOVER)
-   ========================================= */
-.skills-accordion {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem; /* Mayor separación entre bloques para romper lo plano */
-    margin-top: 1.5rem;
-}
-
-/* Cada tarjeta de categoría */
-.skills-group {
-    background: var(--white); /* Color base #1a1a1a para crear relieve real */
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
-                border-color 0.3s ease, 
-                box-shadow 0.3s ease;
-}
-
-/* El título que el usuario toca o ve */
-.skills-summary {
-    padding: 20px;
-    font-size: 1rem;
-    font-family: monospace;
-    color: var(--dark);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    user-select: none;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-/* Flecha indicadora estilizada */
-.skills-summary .arrow {
-    display: inline-block;
-    transition: transform 0.3s ease, color 0.3s ease;
-    font-family: var(--font-main);
-    font-size: 1rem;
-    color: var(--gray);
-}
-
-/* Contenedor de las etiquetas ocultas */
-.skills-content {
-    max-height: 0;
-    opacity: 0;
-    padding: 0 20px;
-    overflow: hidden;
-    background: rgba(12, 12, 12, 0.4); /* Fondo ligeramente más oscuro para contrastar */
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-                opacity 0.3s ease, 
-                padding 0.4s ease;
-}
-
-/* Distribución interna de los tags */
-.skills-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-/* =========================================
-   EFECTOS DINÁMICOS AL PASAR EL CURSOR (HOVER)
-   ========================================= */
-
-/* Acción sobre la tarjeta completa */
-.skills-group:hover {
-    border-color: var(--gold);
-    transform: translateY(-3px); /* Levanta la tarjeta creando relieve 3D */
-    box-shadow: 0 10px 20px rgba(212, 165, 116, 0.08); /* Iluminación sutil dorada */
-}
-
-/* Cambio de color en el título */
-.skills-group:hover .skills-summary {
-    color: var(--gold);
-}
-
-/* Rotación y cambio de color en la flecha */
-.skills-group:hover .skills-summary .arrow {
-    transform: rotate(90deg);
-    color: var(--gold);
-}
-
-/* Despliegue fluido del contenido */
-.skills-group:hover .skills-content {
-    max-height: 300px; /* Espacio suficiente para albergar los tags */
-    opacity: 1;
-    padding: 20px; /* Le devuelve el aire interno al abrirse */
-    border-top: 1px solid rgba(212, 165, 116, 0.15); /* Línea divisoria interna brillante */
-}
-
-/* Mejoras visuales en las etiquetas individuales */
-.skills-tags .tag {
-    background: #121212; /* Fondo oscuro sólido para que resalten sobre la tarjeta */
-    border: 1px solid var(--border-color);
-    padding: 8px 16px;
-    border-radius: 6px; /* Bordes ligeramente más rectangulares y maduros */
-    font-size: 0.85rem;
-    color: var(--dark);
-    transition: var(--transition);
-}
-
-.skills-tags .tag:hover {
-    border-color: var(--gold-light);
-    color: #ffffff;
-    background: rgba(214, 165, 116, 0.1);
 }
