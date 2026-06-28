@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Sarmiento | Portafolio Profesional</title>
+    <title>Jose Daniel Sarmiento | Portafolio Profesional</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,7 +15,7 @@
                 <a href="index.html" class="logo">DANIEL SARMIENTO</a>
                 <ul class="nav-links">
                     <li><a href="index.html" class="nav-link active">Inicio</a></li>
-                    <li><a href="#proyectos" class="nav-link">Proyectos Académicos</a></li>
+                    <li><a href="#sistemas-datos" class="nav-link">Sistemas & Datos</a></li>
                     <li><a href="#contenido-visual" class="nav-link">Contenido Visual</a></li>
                     <li><a href="daniel.html" class="nav-link">Sobre mí</a></li>
                     <li><a href="#contacto" class="nav-link">Contacto</a></li>
@@ -27,32 +27,40 @@
     <header class="hero">
         <div class="container">
             <h1>Desarrollo Web & <br> Creación de Contenido.</h1>
-            <p>Estudiante universitario enfocado en construir experiencias digitales funcionales y piezas visuales con impacto.</p>
-            <a href="#proyectos" class="cta">VER MIS TRABAJOS</a>
+            <p>Estudiante de Ingeniería en Computación enfocado en construir experiencias digitales funcionales, sistemas a medida y analítica aplicada.</p>
+            <a href="#sistemas-datos" class="cta">VER MIS TRABAJOS</a>
         </div>
     </header>
 
-    <section id="proyectos" class="section">
+    <section id="sistemas-datos" class="section">
         <div class="container">
-            <h2 class="section-title">Proyectos Académicos</h2>
-            <p class="section-subtitle">Selección de desarrollos y aplicaciones web realizados durante mi formación universitaria.</p>
+            <h2 class="section-title">Sistemas, Datos & Aplicaciones</h2>
+            <p class="section-subtitle">Soluciones lógicas, diseño de interfaces web avanzadas y automatización de flujos de información.</p>
             
             <div class="portfolio-grid">
-                <div class="preview-item">
-                    <div class="preview-img-wrap">
-                        <img src="aks1.jpeg" alt="Sitio Web Aksha Living" class="preview-img">
-                    </div>
-                    <h3>Aksha Living E-commerce</h3>
-                    <p>Desarrollo de un sitio web completo para una marca de velas vibracionales. Incluye carrito de compras local y maquetación responsiva.</p>
-                </div>
                 
-                <div class="preview-item">
-                    <div class="preview-img-wrap">
-                        <img src="images/proyecto-universitario-2.png" alt="Proyecto Universitario 2" class="preview-img">
+                <a href="uny.html" class="portfolio-link">
+                    <div class="preview-item">
+                        <div class="preview-img-wrap">
+                            <img src="images/proyecto-universitario-2.png" alt="Diseño de Aplicaciones y Páginas Web UNY" class="preview-img">
+                        </div>
+                        <span style="color: var(--gold); font-family: monospace; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">Ingeniería & Software</span>
+                        <h3>Desarrollo de Aplicaciones & Páginas Web</h3>
+                        <p>Diseño de interfaces dinámicas, e-commerce interactivos (como Aksha Living), lógica estructurada en Node.js y desarrollo de software realizado durante mi formación en la UNY. <span style="text-decoration: underline; display: block; margin-top: 0.5rem; font-size: 0.8rem; color: var(--gold);">Ver aplicaciones realizadas →</span></p>
                     </div>
-                    <h3>Aplicación Web de Gestión</h3>
-                    <p>Plataforma interactiva diseñada para la asignatura de Desarrollo Web. Enfoque en arquitectura limpia y experiencia de usuario.</p>
-                </div>
+                </a>
+
+                <a href="excel.html" class="portfolio-link">
+                    <div class="preview-item">
+                        <div class="preview-img-wrap">
+                            <img src="images/proyecto-velas.png" alt="Soluciones en Excel Avanzado" class="preview-img">
+                        </div>
+                        <span style="color: var(--gold); font-family: monospace; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">Analítica Universitaria & Comercial</span>
+                        <h3>Soluciones de Datos & Gestión en Excel</h3>
+                        <p>Sistemas de control logístico internacional, optimización de costos y mermas gastronómicas, y herramientas automáticas para el sector académico de Psicología y Contaduría. <span style="text-decoration: underline; display: block; margin-top: 0.5rem; font-size: 0.8rem; color: var(--gold);">Ver ecosistema Excel →</span></p>
+                    </div>
+                </a>
+                
             </div>
         </div>
     </section>
@@ -92,7 +100,7 @@
             <p class="section-subtitle">¿Tienes algún proyecto en mente o buscas incorporar talento a tu equipo? Escríbeme.</p>
             
             <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
-                  <input type="hidden" name="access_key" value="9e5aff7e-b557-4674-a58f-f4a3ae738c54">
+                <input type="hidden" name="access_key" value="9e5aff7e-b557-4674-a58f-f4a3ae738c54">
 
                 <label for="name">Nombre</label>
                 <input type="text" id="name" name="name" required placeholder="Tu nombre">
@@ -108,12 +116,13 @@
         </div>
     </section>
 
-     <a href="https://wa.me/584125943324" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/584125943324" class="whatsapp-float" target="_blank">
         <svg class="whatsapp-icon" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
     </a>
+
     <footer>
         <div class="container">
-            <p>&copy; 2026 Daniel Sarmiento. Desarrollado con dedicación profesional.</p>
+            <p>&copy; 2026 Jose Daniel Sarmiento. Desarrollado con dedicación profesional.</p>
         </div>
     </footer>
 
