@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PICCADILLY | Marketing & Multimedia - Daniel Sarmiento</title>
+    <title>PICCADILLY | Marketing & Multimedia - Jose Daniel Sarmiento</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght=200;300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -34,6 +34,55 @@
             margin: 0;
         }
         
+        /* NUEVO: Estilos para el Bloque de Automatización ManyChat */
+        .automation-block {
+            background-color: #fcfcfc;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+        }
+        .automation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 3rem;
+            margin-top: 1.5rem;
+        }
+        .automation-col h4 {
+            color: #c5a059;
+            font-size: 1.1rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .automation-list {
+            padding-left: 1.2rem;
+            margin: 0;
+            color: #555;
+        }
+        .automation-list li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .tag-badge {
+            font-size: 0.75rem;
+            padding: 0.4rem 0.8rem;
+            border: 1px solid #eee;
+            border-radius: 50px;
+            color: #666;
+            background: #fff;
+        }
+        .tag-badge.highlight {
+            border-color: #c5a059;
+            color: #c5a059;
+        }
+
         /* Sección de Multimedia y Galería */
         .section-subtitle-center {
             text-align: center;
@@ -95,6 +144,10 @@
                 gap: 1.5rem;
                 text-align: center;
             }
+            .automation-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
             .project-gallery, .video-vertical-grid {
                 grid-template-columns: 1fr;
             }
@@ -109,9 +162,10 @@
     <nav class="nav">
         <div class="container">
             <div class="nav-content">
-                <a href="index.html" class="logo">DANIEL SARMIENTO</a>
+                <a href="index.html" class="logo">JOSE DANIEL SARMIENTO</a>
                 <ul class="nav-links">
                     <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="daniel.html" class="nav-link">Sobre Mí</a></li>
                     <li><a href="index.html#proyectos" class="nav-link">Proyectos Académicos</a></li>
                     <li><a href="index.html#contenido-visual" class="nav-link active">Contenido Visual</a></li>
                     <li><a href="index.html#contacto" class="nav-link">Contacto</a></li>
@@ -123,8 +177,8 @@
     <main class="container">
         <!-- Encabezado del Proyecto -->
         <header class="project-header">
-            <img src="LogoPIC0.png">
-            <span style="color: #c5a059; letter-spacing: 3px; text-transform: uppercase; font-size: 0.8rem;">Marketing Digital & Multimedia</span>
+            <img src="LogoPIC0.png" alt="Logo PICCADILLY">
+            <span style="color: #c5a059; letter-spacing: 3px; text-transform: uppercase; font-size: 0.8rem; display: block; margin-top: 1rem;">Marketing Digital & Multimedia</span>
             <p style="max-width: 650px; margin: 1.5rem auto 0; color: #555; line-height: 1.8; font-weight: 300;">
                 Estrategia de marketing digital y diseño visual para PICCADILLY. El enfoque principal estuvo en la creación de contenido multimedia para redes sociales y entornos digitales, integrando fotografía de producto comercial, edición de videos adaptados a las tendencias actuales y diseño de piezas gráficas de alto impacto.
             </p>
@@ -139,7 +193,7 @@
             </div>
             <div class="meta-item">
                 <h4>Rol</h4>
-                <p>Marketing Digital, Diseño & Producción Audiovisual</p>
+                <p>Digital Marketing Specialist & Multimedia</p>
             </div>
             <div class="meta-item">
                 <h4>Año</h4>
@@ -147,10 +201,46 @@
             </div>
         </section>
 
+
+        <!-- NUEVA SECCIÓN: IMPLEMENTACIÓN DE CHATBOT (MANYCHAT) -->
+        <h3 class="section-subtitle-center">Estrategia de Automatización</h3>
+        <section class="automation-block">
+            <p style="color: #555; line-height: 1.8; font-weight: 300; margin-top: 0; margin-bottom: 2rem;">
+                Para complementar la estrategia multimedia y absorber eficientemente el incremento de tráfico orgánico en redes sociales, diseñé e implementé una infraestructura de atención automatizada utilizando <strong>ManyChat</strong>. Esto permitió estructurar canales conversacionales capaces de calificar leads e interactuar con miles de usuarios en tiempo real.
+            </p>
+            
+            <div class="automation-grid">
+                <!-- Columna Izquierda: Reto y Logros -->
+                <div class="automation-col">
+                    <h4>El Desafío Operativo</h4>
+                    <p style="color: #666; line-height: 1.7; font-size: 0.95rem; margin-bottom: 1.5rem;">
+                        Gestionar flujos de alta demanda sin perder inmediatez de respuesta. La meta fue guiar al usuario de forma clara desde el primer mensaje hacia el catálogo o el equipo de ventas humanas.
+                    </p>
+                    <h4>Impacto Directo</h4>
+                    <div class="tag-container">
+                        <span class="tag-badge highlight">Atención Inteligente 24/7</span>
+                        <span class="tag-badge">Menús Interactivos Eficientes</span>
+                        <span class="tag-badge">Filtro Automático de Clientes</span>
+                    </div>
+                </div>
+                
+                <!-- Columna Derecha: Detalles del Flujo -->
+                <div class="automation-col">
+                    <h4>Implementación en Canales</h4>
+                    <ul class="automation-list">
+                        <li><strong>Disparadores Automatizados:</strong> Respuestas inmediatas configuradas mediante palabras clave específicas y comentarios en publicaciones con alto alcance orgánico.</li>
+                        <li><strong>Enrutamiento Dinámico:</strong> Diseño de flujos condicionales para responder de manera automática dudas sobre precios, tallas y envíos frecuentes.</li>
+                        <li><strong>Calificación de Leads:</strong> Filtrado previo de intenciones de compra reales antes de transferir la conversación de forma transparente a un agente humano.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
         <!-- APARTADO 1: PRODUCCIÓN AUDIOVISUAL (VIDEOS) -->
         <h3 class="section-subtitle-center">Videos Realizados</h3>
         
-        <!-- Si tus videos son en formato vertical (Reels/Shorts), usa este grid de 3 columnas -->
+        <!-- Grid de videos en formato vertical (Reels/Shorts) -->
         <section class="video-vertical-grid">
             <div>
                 <video controls poster="images/video-poster-1.png">
@@ -172,6 +262,7 @@
             </div>
         </section>
 
+
         <!-- APARTADO 2: DISEÑO Y FOTOGRAFÍA COMERCIAL -->
         <h3 class="section-subtitle-center">Fotografía Comercial & Diseño</h3>
         <section class="project-gallery">
@@ -180,7 +271,7 @@
                 <img src="piccadillymedia/image1.jpeg" alt="PICCADILLY Campaña Principal">
             </div>
             
-            <!-- Dos imágenes en paralelo (Diseños de publicaciones o fotos fijas) -->
+            <!-- Dos imágenes en paralelo -->
             <div>
                 <img src="image4.jpeg" alt="PICCADILLY Fotografía de Producto">
             </div>
@@ -194,6 +285,7 @@
             </div>
         </section>
 
+
         <!-- Enlace para volver al inicio -->
         <div style="text-align: center; margin-bottom: 6rem;">
             <a href="index.html#contenido-visual" class="back-link">← Volver a Contenido Visual</a>
@@ -202,7 +294,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Daniel Sarmiento. Desarrollado con dedicación profesional.</p>
+            <p>&copy; 2026 Jose Daniel Sarmiento. Desarrollado con dedicación profesional.</p>
         </div>
     </footer>
 
